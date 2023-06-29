@@ -1,0 +1,22 @@
+jenkins-->ubuntu server 20, t2.small				ami-09cd747c78a9add63
+nexus--> amazon linux2 t2.medium				ami-0dfcb1ef8550277af			
+sonar-->ubuntu 18, t2.medium					ami-0263e4deb427da90e
+
+eks-terraform-key
+
+sed -i 's/Jun_10/new_key/g' *
+sed -i 's/Jun_10.pem/new_key/g' *
+
+grep -iR "Jun_10*" *
+grep -iR "new_key*" *
+c4-12-ec2nexus-instance.tf
+c4-13-ec2nexus-securitygroups.tf
+
+
+
+ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20230207
+
+
+for file in *ec2*.tf; do 
+    mv -- "$file" "${file%.tf}.text"
+done
